@@ -31,7 +31,7 @@ void setup() {
 void draw() {
   background(255);
   //camera(mouseX, mouseY, (height/1.5) / tan(PI/4), width/2, height/2, 0, 0, 1, 0);
-  camera(width/5, width/2.30, width/3.5, width/2, height/2, 0, 0, 0, -1);
+  camera(width/1.8, width/2.60, width/5.5, width/2, height/2, width/8, 0, 0, -1);
   //lights();
   ambientLight(51, 102, 126);
   ambientLight(102, 50, 126);
@@ -40,7 +40,7 @@ void draw() {
   directionalLight(102, 102, 102, -2, -2, -1);
   lightSpecular(102, 102, 102);
   specular(51, 51, 51);
-  ortho();
+  //ortho();
   
   float GRID_SIZE = height/7;
   
@@ -110,13 +110,13 @@ void Draw_letters(float box_width)
     rotateX(radians(-90));
     
     float box_sep = box_width;
-    float letter_sep = box_width * 16;
+    float letter_sep = box_width * 40;
     float letter_spacing = box_width * 6; 
     translate(box_width/2, box_width/2, 0);//adjust the Wordpaint error
     WordPaint("P", box_width, box_sep, letter_sep, letter_spacing);
-    translate(5*2*box_width, 0, 4*2*box_width);
+    translate(10*2*box_width, 0, 0*2*box_width);
     WordPaint("N", box_width, box_sep, letter_sep, letter_spacing);
-    translate(5*2*box_width, 0, 4*2*box_width);
+    translate(10*2*box_width, 0,0*2*box_width);
     WordPaint("K", box_width, box_sep, letter_sep, letter_spacing);
     popMatrix();
 }
@@ -168,7 +168,7 @@ void Draw_cylinder(float grid_size){
   
   //Cone
   pushMatrix();
-  translate(grid_size*17, grid_size*12, grid_size*3.5);
+  translate(grid_size*19, grid_size*5, grid_size*3.5);
   rotateX(radians(+90));
   //fill(#6F8EDB);
   rotateZ(PI);
@@ -178,7 +178,7 @@ void Draw_cylinder(float grid_size){
   
   //Cilynder3
   pushMatrix();
-  translate(grid_size*22, grid_size*9.5, grid_size*1.7);
+  translate(grid_size*22, grid_size*3.5, grid_size*1.7);
   rotateX(radians(+90));
   //fill(#6F8EDB);
   rotateZ(PI);
@@ -230,7 +230,7 @@ void drawCylinder(float topRadius, float bottomRadius, float tall, int sides) {
 void Draw_sphere(float grid_size){
   //Cone
   pushMatrix();
-  translate(grid_size*11.5, grid_size*9.5,1.3*grid_size);
+  translate(grid_size*12.5, grid_size*5.5,1.3*grid_size);
   fill(#ec46a0);
   strokeWeight(1);
   sphere(1.3*grid_size);
