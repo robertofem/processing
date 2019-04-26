@@ -67,12 +67,12 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  background(7);
   //camera(mouseX, mouseY, (height/1.5) / tan(PI/4), width/2, height/2, 0, 0, 1, 0);
   camera(width/5, width/2.30, width/3.5, width/2, height/2, 0, 0, 0, -1);
   //lights();
   ambientLight(51, 102, 126);
-ambientLight(102, 50, 126);
+  ambientLight(102, 50, 126);
   lightSpecular(204, 204, 204);
   //directionalLight(102, 102, 102, 2, 1, -1);
   directionalLight(102, 102, 102, -2, -2, -1);
@@ -82,80 +82,86 @@ ambientLight(102, 50, 126);
   
   float GRID_SIZE = height/7;
   
-  //Draw elements //<>//
-  Draw_axis(GRID_SIZE);
+  //Draw elements //<>// //<>// //<>//
+  //Draw_axis(GRID_SIZE);
   Draw_grid(GRID_SIZE);
   Draw_letters(GRID_SIZE/2);
-  Draw_cylinder(GRID_SIZE); //<>//
+  //Draw_cylinder(GRID_SIZE); //<>// //<>// //<>//
   Draw_sphere(GRID_SIZE);
-   //<>//
+   //<>// //<>// //<>//
   //save to file
-  save("pnk_grid_letters.png"); //<>//
+  save("pnk_grid_letters.png"); //<>// //<>// //<>//
 }
- //<>//
+ //<>// //<>// //<>//
 void Draw_axis(float grid_size){
-  pushMatrix(); //<>//
+  pushMatrix(); //<>// //<>// //<>//
   translate(3*grid_size, -2*grid_size, 1);
-  //X //<>//
-  stroke(#FF0000); //<>//
-  strokeWeight(4); //<>// //<>//
+  //X //<>// //<>// //<>//
+  stroke(#FF0000); //<>// //<>// //<>//
+  strokeWeight(4); //<>// //<>// //<>// //<>//
   line(0, 0, 0, height/3, 0, 0);
-  //Y //<>//
+  //Y //<>// //<>// //<>//
   stroke(#00FF00);
-  strokeWeight(4); //<>//
-  line(0, 0, 0, 0, height/3, 0); //<>//
-  //Z //<>//
-  stroke(#0000FF); //<>// //<>//
-  strokeWeight(4); //<>//
+  strokeWeight(4); //<>// //<>// //<>//
+  line(0, 0, 0, 0, height/3, 0); //<>// //<>// //<>//
+  //Z //<>// //<>// //<>//
+  stroke(#0000FF); //<>// //<>// //<>// //<>//
+  strokeWeight(4); //<>// //<>// //<>//
   line(0, 0, 0, 0, 0, height/3);
   popMatrix();
-} //<>// //<>// //<>// //<>// //<>//
- //<>//
+} //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+ //<>// //<>// //<>//
 void Draw_grid(float grid_size){
-  pushMatrix(); //<>//
-  translate(-2*grid_size, -8*grid_size, 0); //<>// //<>// //<>// //<>//
-  stroke(0);
+  pushMatrix(); //<>// //<>// //<>//
+  translate(-2*grid_size, -8*grid_size, 0); //<>// //<>// //<>// //<>// //<>// //<>//
+  stroke(244);
   strokeWeight(1.8);
   grid(width*2, height*4, grid_size);
-  popMatrix(); //<>// //<>//
-} //<>// //<>//
+  popMatrix(); //<>// //<>// //<>// //<>//
+} //<>// //<>// //<>// //<>//
 
-void grid(float sizeX, float sizeY, float sizeGrid) //<>// //<>//
-{ //<>// //<>//
-   float x = 0; //<>// //<>//
-   float y = 0; //<>// //<>//
-    //<>// //<>//
-   while(x <= sizeX)  //<>// //<>//
-   { //<>// //<>// //<>//
-     line(x, 0, x, sizeY); //<>// //<>//
+void grid(float sizeX, float sizeY, float sizeGrid) //<>// //<>// //<>// //<>//
+{ //<>// //<>// //<>// //<>//
+   float x = 0; //<>// //<>// //<>// //<>//
+   float y = 0; //<>// //<>// //<>// //<>//
+    //<>// //<>// //<>// //<>//
+   while(x <= sizeX)  //<>// //<>// //<>// //<>//
+   { //<>// //<>// //<>// //<>// //<>//
+     line(x, 0, x, sizeY); //<>// //<>// //<>// //<>//
      x = x + sizeGrid;
    }
-    //<>//
+    //<>// //<>// //<>//
    while(y <= sizeY) 
    {
-     line(0, y, sizeX, y); //<>// //<>//
-     y = y + sizeGrid; //<>// //<>// //<>// //<>//
+     line(0, y, sizeX, y); //<>// //<>// //<>// //<>//
+     y = y + sizeGrid; //<>// //<>// //<>// //<>// //<>// //<>//
    }
-} //<>// //<>//
+} //<>// //<>// //<>// //<>//
 
 void Draw_letters(float box_width)
 {
-    fill(color(248,148,40));
-    //stroke(color(25,25,0));   //<>//
-    noStroke(); //<>//
+    fill(color(244,19,19));
+    //stroke(color(25,25,0));   //<>// //<>// //<>//
+    noStroke(); //<>// //<>// //<>//
     pushMatrix();
-    translate(4*box_width, -16*box_width, 0); //<>// //<>//
+    translate(-2*box_width, -20*box_width, 0); //<>// //<>// //<>// //<>//
     rotateX(radians(-90));
     
     float box_sep = box_width;
     float letter_sep = box_width * 16;
     float letter_spacing = box_width * 6; 
     translate(box_width/2, box_width/2, 0);//adjust the Wordpaint error
-    WordPaint("P", box_width, box_sep, letter_sep, letter_spacing);
-    translate(5*2*box_width, 0, 4*2*box_width);
-    WordPaint("N", box_width, box_sep, letter_sep, letter_spacing);
-    translate(5*2*box_width, 0, 4*2*box_width);
-    WordPaint("K", box_width, box_sep, letter_sep, letter_spacing);
+    WordPaint("S", box_width, box_sep, letter_sep, letter_spacing);
+    translate(3*2*box_width, 0, 2*2*box_width);
+    WordPaint("E", box_width, box_sep, letter_sep, letter_spacing);
+    translate(3.1*2*box_width, 0, 2*2*box_width);
+    WordPaint("R", box_width, box_sep, letter_sep, letter_spacing);
+     translate(3*2*box_width, 0, 2*2*box_width);
+    WordPaint("L", box_width, box_sep, letter_sep, letter_spacing);
+     translate(3*2*box_width, 0, 2*2*box_width);
+    WordPaint("L", box_width, box_sep, letter_sep, letter_spacing);
+     translate(3*2*box_width, 0, 2*2*box_width);
+    WordPaint("A", box_width, box_sep, letter_sep, letter_spacing);
     popMatrix();
 }
 
@@ -268,10 +274,10 @@ void drawCylinder(float topRadius, float bottomRadius, float tall, int sides) {
 void Draw_sphere(float grid_size){
   //Cone
   pushMatrix();
-  translate(grid_size*13, grid_size*8,1.3*grid_size);
-  fill(#64d6dd);
+  translate(grid_size*20.5, grid_size*12,1.3*grid_size);
+  fill(#f7e40d);
   strokeWeight(1);
-  sphere(1.3*grid_size);
+  sphere(1.6*grid_size);
   popMatrix();
 }
 
